@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity implements TodayTabActivity.
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_expense:
-                    mTextMessage.setText(R.string.title_expense);
+                case R.id.navigation_expenses:
+                    mTextMessage.setText(R.string.title_expenses);
                     return true;
                 case R.id.navigation_categories:
                     mTextMessage.setText(R.string.title_categories);
