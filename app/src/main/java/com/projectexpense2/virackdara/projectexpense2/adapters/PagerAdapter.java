@@ -1,9 +1,12 @@
-package com.projectexpense2.virackdara.projectexpense2;
+package com.projectexpense2.virackdara.projectexpense2.adapters;
 
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+
+import com.projectexpense2.virackdara.projectexpense2.fragments.MonthTabFragment;
+import com.projectexpense2.virackdara.projectexpense2.fragments.TodayTabFragment;
+import com.projectexpense2.virackdara.projectexpense2.fragments.WeekTabFragment;
 
 /**
  * Created by moham on 2018-04-19.
@@ -22,13 +25,13 @@ public class PagerAdapter extends FragmentStatePagerAdapter{
     public Fragment getItem(int position) {
         switch(position){
             case 0:
-                TodayTabActivity tab1 = new TodayTabActivity();
+                TodayTabFragment tab1 = new TodayTabFragment();
                 return  tab1;
             case 1:
-                WeekTabActivity tab2 = new WeekTabActivity();
+                WeekTabFragment tab2 = new WeekTabFragment();
                 return tab2;
             case 2:
-                MonthTabActivity tab3 = new MonthTabActivity();
+                MonthTabFragment tab3 = new MonthTabFragment();
                 return  tab3;
             default:
                 return null;
