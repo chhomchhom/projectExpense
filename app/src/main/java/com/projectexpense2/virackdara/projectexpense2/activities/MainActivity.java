@@ -8,9 +8,12 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.projectexpense2.virackdara.projectexpense2.adapters.ExpenseCardAdapter;
 import com.projectexpense2.virackdara.projectexpense2.adapters.PagerAdapter;
 import com.projectexpense2.virackdara.projectexpense2.R;
 import com.projectexpense2.virackdara.projectexpense2.fragments.ExpensesFragment;
@@ -22,10 +25,16 @@ import com.projectexpense2.virackdara.projectexpense2.fragments.TodayTabFragment
 import com.projectexpense2.virackdara.projectexpense2.fragments.WeekTabFragment;
 import com.projectexpense2.virackdara.projectexpense2.fragments.CategoriesFragment;
 import com.projectexpense2.virackdara.projectexpense2.helpers.BottomNavigationViewHelper;
+import com.projectexpense2.virackdara.projectexpense2.objects.ExpenseCard;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -56,10 +65,13 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         //mTextMessage = findViewById(R.id.message);
         BottomNavigationView navigation = findViewById(R.id.navigation);
         BottomNavigationViewHelper.removeShiftMode(navigation);
