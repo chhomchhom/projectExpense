@@ -13,9 +13,17 @@ public class ExpenseCard {
     //discription is optional
     public ExpenseCard(String title, String amount, Date date, Categories cat){
         this.title = title;
+
         this.amount = amount;
         this.date = date;
         this.categories=cat;
+    }
+    public ExpenseCard(String title, String amount, Date date, Categories cat,String description){
+        this.title = title;
+        this.amount = amount;
+        this.date = date;
+        this.categories=cat;
+        this.description = description;
     }
 
 
