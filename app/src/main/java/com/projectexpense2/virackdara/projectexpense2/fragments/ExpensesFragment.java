@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.projectexpense2.virackdara.projectexpense2.R;
 import com.projectexpense2.virackdara.projectexpense2.adapters.PagerAdapter;
+import com.projectexpense2.virackdara.projectexpense2.objects.Categories;
 import com.projectexpense2.virackdara.projectexpense2.objects.ExpenseCard;
 
 import java.util.Date;
@@ -52,9 +53,9 @@ public class ExpensesFragment extends Fragment{
 
     //description is optional
     //call based on if description is null or not
-    public ExpenseCard addExpense(String title, String amount, String description){
+    public ExpenseCard addExpense(String title, String amount, String description, Categories cat){
         Date myDate = new Date();
-        ExpenseCard myCard = new ExpenseCard (title,amount,myDate);
+        ExpenseCard myCard = new ExpenseCard (title,amount,myDate, cat);
 
         return myCard;
     }

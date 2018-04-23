@@ -7,13 +7,15 @@ public class ExpenseCard {
     private String amount;
     private Date date;
     private String description;
+    private Categories categories;
 
     //constructor
     //discription is optional
-    public ExpenseCard(String title, String amount, Date date){
+    public ExpenseCard(String title, String amount, Date date, Categories cat){
         this.title = title;
         this.amount = amount;
         this.date = date;
+        this.categories=cat;
     }
 
 

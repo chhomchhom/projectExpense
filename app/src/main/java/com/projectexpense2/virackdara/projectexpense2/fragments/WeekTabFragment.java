@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.projectexpense2.virackdara.projectexpense2.R;
 import com.projectexpense2.virackdara.projectexpense2.adapters.ExpenseCardAdapter;
+import com.projectexpense2.virackdara.projectexpense2.objects.Categories;
 import com.projectexpense2.virackdara.projectexpense2.objects.ExpenseCard;
 
 import java.util.ArrayList;
@@ -37,7 +38,8 @@ public class WeekTabFragment extends Fragment {
         expenseCards = new ArrayList<>();
 
         for(int i = 0; i<=10;i++){
-            ExpenseCard expenseCard = new ExpenseCard("Title"+i+1,i+"",new Date());
+            Categories cat = new Categories("Food");
+            ExpenseCard expenseCard = new ExpenseCard("Title"+i+1,i+"",new Date(),cat);
             expenseCards.add(expenseCard);
         }
 
