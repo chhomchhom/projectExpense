@@ -2,7 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context="com.projectexpense2.virackdara.projectexpense2.fragments.TodayTabFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -11,8 +10,7 @@
         android:id="@+id/todayRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="60dp"
          />
-
 
 </RelativeLayout>
