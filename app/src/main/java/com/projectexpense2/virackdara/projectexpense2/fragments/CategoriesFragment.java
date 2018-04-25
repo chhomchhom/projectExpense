@@ -30,7 +30,7 @@ import java.util.List;
 public class CategoriesFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
-    private List<Categories> categoriesCards;
+    //private List<Categories> categoriesCards;
 
     @Nullable
     @Override
@@ -44,14 +44,14 @@ public class CategoriesFragment extends Fragment {
         recyclerView = rootView.findViewById(R.id.categoriesRecyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        categoriesCards = new ArrayList<>();
+        //categoriesCards = new ArrayList<>();
 
-        for(int i = 0; i<=10;i++){
-            Categories cat = new Categories("Food");
-            categoriesCards.add(cat);
-        }
+//        for(int i = 0; i<=10;i++){
+//            Categories cat = new Categories("Food");
+//            categoriesCards.add(cat);
+//        }
 
-        adapter = new CategoriesAdapter(categoriesCards,getContext());
+        adapter = new CategoriesAdapter(Categories.listOfCategories,getContext());
 
         recyclerView.setAdapter(adapter);
 

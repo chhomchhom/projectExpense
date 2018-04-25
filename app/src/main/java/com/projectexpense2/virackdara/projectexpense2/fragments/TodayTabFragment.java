@@ -41,6 +41,7 @@ public class TodayTabFragment extends Fragment {
             Categories cat = new Categories("Food");
             ExpenseCard expenseCard = new ExpenseCard("Title"+i+1,i+"",new Date(),cat);
             expenseCards.add(expenseCard);
+
         }
 
         adapter = new ExpenseCardAdapter(expenseCards,getContext());
