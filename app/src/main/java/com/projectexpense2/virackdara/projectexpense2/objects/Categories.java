@@ -4,11 +4,17 @@ import java.util.ArrayList;
 
 public class Categories {
     private String name;
-    protected ArrayList<Categories> listOfCategories = new ArrayList<>();
+    public static ArrayList<Categories> listOfCategories = new ArrayList<>();
 
 
     public Categories(String name){
+
         this.name = name;
+    }
+
+    public int getCount(){
+        int count = listOfCategories.size();
+        return count;
     }
 
     public String getName() {
