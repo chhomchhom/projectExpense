@@ -91,9 +91,8 @@ public class ExpensesFragment extends Fragment{
                 Intent myIntent = new Intent(getContext(), SettingsActivity.class);
                 getContext().startActivity(myIntent);
                 return true;
-            case R.id.item2:
-
-                // Do Fragment menu item stuff here
+            case R.id.add_button:
+                openExpenseDialog();
                 return true;
 
             default:
@@ -102,5 +101,15 @@ public class ExpensesFragment extends Fragment{
 
         return false;
     }
+
+    public void openExpenseDialog(){
+        ExpenseDialogFragment expenseDialogFragment = new ExpenseDialogFragment();
+        expenseDialogFragment.show(getFragmentManager(),"Example");
+    }
+
+//    @Override
+//    public void applyTexts(String title, String amount, String description){
+//        addExpense(String title, String amount, String description, Categories cat)
+//    }
 
 }

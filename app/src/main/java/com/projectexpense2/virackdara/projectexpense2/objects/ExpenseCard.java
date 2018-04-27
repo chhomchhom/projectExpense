@@ -27,7 +27,6 @@ public class ExpenseCard {
         this.title = title;
     }
 
-
     public String getAmount() {
         return amount;
     }
