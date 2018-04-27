@@ -44,6 +44,14 @@ public class ExpenseCardAdapter extends RecyclerView.Adapter<ExpenseCardAdapter.
         return myList.size();
     }
 
+    public class GetList{
+
+        public void setMyList(List<ExpenseCard> v){
+            myList = v;
+        }
+    }
+
+
     public class ViewHolder extends RecyclerView.ViewHolder{
         public TextView textViewHead;
         public TextView textViewPrice;
@@ -55,6 +63,8 @@ public class ExpenseCardAdapter extends RecyclerView.Adapter<ExpenseCardAdapter.
             textViewHead = itemView.findViewById(R.id.expenseTitle);
 
             textViewPrice = itemView.findViewById(R.id.expensePrice);
+
         }
     }
+
 }
