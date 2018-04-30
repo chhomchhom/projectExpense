@@ -26,7 +26,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter{
         switch(position){
             case 0:
                 TodayTabFragment tab1 = new TodayTabFragment();
-                return  tab1;
+                return tab1;
             case 1:
                 WeekTabFragment tab2 = new WeekTabFragment();
                 return tab2;
