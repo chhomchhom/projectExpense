@@ -59,12 +59,14 @@ Button save;
                 b.putString("title", title);
                 TodayTabFragment test = new TodayTabFragment();
                 test.setArguments(b);
-                android.support.v4.app.FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-
+                //these two lines causes the app to crash
+                //when you add an expense card then press the home button
+//                android.support.v4.app.FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//     fragmentManager.beginTransaction().detach(test).attach(test).commit();
                 Date myDate = new Date();
                 ExpenseCard myExpense = new ExpenseCard(title,"5",myDate, new Categories("Food"));
                 listOfExpenseCards.add(myExpense);
-                fragmentManager.beginTransaction().detach(test).attach(test).commit();
+
 
                 dismiss();
 
