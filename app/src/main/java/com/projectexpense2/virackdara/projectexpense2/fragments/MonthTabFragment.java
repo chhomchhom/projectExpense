@@ -26,7 +26,6 @@ import static com.projectexpense2.virackdara.projectexpense2.objects.ExpenseCard
 public class MonthTabFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
-    private List<ExpenseCard> expenseCards;
 
     @Nullable
     @Override
@@ -37,7 +36,6 @@ public class MonthTabFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        expenseCards = new ArrayList<>();
 
 
         adapter = new ExpenseCardAdapter(listOfExpenseCards,getContext());

@@ -26,7 +26,7 @@ import static com.projectexpense2.virackdara.projectexpense2.objects.ExpenseCard
 public class WeekTabFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
-    private List<ExpenseCard> expenseCards;
+
 
     @Nullable
     @Override
@@ -37,13 +37,6 @@ public class WeekTabFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        expenseCards = new ArrayList<>();
-
-        for(int i = 0; i<=10;i++){
-            Categories cat = new Categories("Food");
-            ExpenseCard expenseCard = new ExpenseCard("Title"+i+1,i+"",new Date(),cat);
-            expenseCards.add(expenseCard);
-        }
 
         adapter = new ExpenseCardAdapter(listOfExpenseCards,getContext());
 
