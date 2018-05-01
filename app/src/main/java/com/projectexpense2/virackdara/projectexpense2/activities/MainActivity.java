@@ -72,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
             System.out.println(Categories.listOfCategories.get(i).getName());
         }
 
+
+
         BottomNavigationView navigation = findViewById(R.id.navigation);
         BottomNavigationViewHelper.removeShiftMode(navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);

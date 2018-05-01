@@ -7,11 +7,16 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/monthRecyclerView"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="32dp"
-        />
+        android:layout_height="match_parent">
+        
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/monthRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="60dp"
+            />
+    </FrameLayout>
 
 </RelativeLayout>
