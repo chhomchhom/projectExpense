@@ -2,15 +2,30 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container3"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.projectexpense2.virackdara.projectexpense2.activities.SettingsActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarSettings"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Settings"
-        tools:layout_editor_absoluteX="162dp"
-        tools:layout_editor_absoluteY="256dp" />
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <TextView
+            android:id="@+id/settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:height="100dp"
+            android:gravity="center_vertical"
+            android:text="Settings"
+            android:textColor="@android:color/white"
+            android:textSize="30dp" />
+    </android.support.v7.widget.Toolbar>
+
+
 </android.support.constraint.ConstraintLayout>
