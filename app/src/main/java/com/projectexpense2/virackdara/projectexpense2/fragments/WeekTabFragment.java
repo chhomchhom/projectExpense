@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static com.projectexpense2.virackdara.projectexpense2.objects.ExpenseCard.listOfExpenseCards;
+
 
 public class WeekTabFragment extends Fragment {
     private RecyclerView recyclerView;
@@ -43,7 +45,7 @@ public class WeekTabFragment extends Fragment {
             expenseCards.add(expenseCard);
         }
 
-        adapter = new ExpenseCardAdapter(expenseCards,getContext());
+        adapter = new ExpenseCardAdapter(listOfExpenseCards,getContext());
 
         recyclerView.setAdapter(adapter);
         return rootView;

@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static com.projectexpense2.virackdara.projectexpense2.objects.ExpenseCard.listOfExpenseCards;
+
 
 public class MonthTabFragment extends Fragment {
     private RecyclerView recyclerView;
@@ -37,13 +39,8 @@ public class MonthTabFragment extends Fragment {
 
         expenseCards = new ArrayList<>();
 
-        for(int i = 0; i<=10;i++){
-            Categories cat = new Categories("Food");
-            ExpenseCard expenseCard = new ExpenseCard("Title"+i+1,i+"",new Date(),cat);
-            expenseCards.add(expenseCard);
-        }
 
-        adapter = new ExpenseCardAdapter(expenseCards,getContext());
+        adapter = new ExpenseCardAdapter(listOfExpenseCards,getContext());
 
         recyclerView.setAdapter(adapter);
         return rootView;

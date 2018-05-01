@@ -23,6 +23,11 @@ import com.projectexpense2.virackdara.projectexpense2.fragments.StatisticsFragme
 import com.projectexpense2.virackdara.projectexpense2.fragments.CategoriesFragment;
 import com.projectexpense2.virackdara.projectexpense2.helpers.BottomNavigationViewHelper;
 import com.projectexpense2.virackdara.projectexpense2.objects.Categories;
+import com.projectexpense2.virackdara.projectexpense2.objects.ExpenseCard;
+
+import java.util.Date;
+
+import static com.projectexpense2.virackdara.projectexpense2.objects.ExpenseCard.listOfExpenseCards;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -65,14 +70,18 @@ public class MainActivity extends AppCompatActivity {
 
         //this would be where we would read how many categories there are from a local database
         //add it to the public arraylist of categories
-        // do something similar with expenses?
+        //do something similar with expenses
         for(int i = 0; i<=10;i++){
             Categories cat = new Categories("Food");
             Categories.listOfCategories.add(cat);
             System.out.println(Categories.listOfCategories.get(i).getName());
         }
 
-
+        for(int i = 0; i<=10;i++){
+            Categories cat = new Categories("Food");
+            ExpenseCard expenseCard = new ExpenseCard("Title"+i+1,i+"",new Date(),cat);
+            listOfExpenseCards.add(expenseCard);
+        }
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
         BottomNavigationViewHelper.removeShiftMode(navigation);
