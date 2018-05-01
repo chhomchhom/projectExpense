@@ -2,17 +2,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context="com.projectexpense2.virackdara.projectexpense2.fragments.WeekTabFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/weekRecyclerView"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="32dp"
-        />
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/weekRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="60dp"
+            />
+    </FrameLayout>
 
 </RelativeLayout>

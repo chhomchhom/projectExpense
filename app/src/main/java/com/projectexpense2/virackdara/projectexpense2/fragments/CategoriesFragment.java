@@ -77,13 +77,10 @@ public class CategoriesFragment extends Fragment {
 
                 // Do Fragment menu item stuff here
                 return true;
-            case R.id.action_favorite:
-                //this is the add categories button
-//                Intent myIntent2 = new Intent(getContext(), addCategoriesFragment.class);
-//                getContext().startActivity(myIntent2);
-
-
+            case R.id.add_button:
+                openCategoryDialog();
                 return true;
+
             default:
                 break;
         }
@@ -92,5 +89,9 @@ public class CategoriesFragment extends Fragment {
     }
 
 
+    public void openCategoryDialog(){
+        CategoriesDialogFragment categoriesDialogFragment = new CategoriesDialogFragment();
+        categoriesDialogFragment.show(getFragmentManager(),"Example");
+    }
 
 }
