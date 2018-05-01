@@ -22,6 +22,7 @@ import com.projectexpense2.virackdara.projectexpense2.fragments.ReminderFragment
 import com.projectexpense2.virackdara.projectexpense2.fragments.StatisticsFragment;
 import com.projectexpense2.virackdara.projectexpense2.fragments.CategoriesFragment;
 import com.projectexpense2.virackdara.projectexpense2.helpers.BottomNavigationViewHelper;
+import com.projectexpense2.virackdara.projectexpense2.objects.Categories;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -61,6 +62,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //this would be where we would read how many categories there are from a local database
+        //add it to the public arraylist of categories
+        // do something similar with expenses?
+        for(int i = 0; i<=10;i++){
+            Categories cat = new Categories("Food");
+            Categories.listOfCategories.add(cat);
+            System.out.println(Categories.listOfCategories.get(i).getName());
+        }
+
+
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
         BottomNavigationViewHelper.removeShiftMode(navigation);

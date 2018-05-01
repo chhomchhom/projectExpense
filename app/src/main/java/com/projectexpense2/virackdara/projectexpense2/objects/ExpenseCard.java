@@ -9,13 +9,15 @@ public class ExpenseCard {
     private Date date;
     private String description;
     private Categories categories;
-    protected ArrayList<ExpenseCard> listOfExpenseCards = new ArrayList<>();
+    public static ArrayList<ExpenseCard> listOfExpenseCards = new ArrayList<>();
 
     //constructor
     //description is optional
+    public ExpenseCard(){
+
+    }
     public ExpenseCard(String title, String amount, Date date, Categories cat){
         this.title = title;
-
         this.amount = amount;
         this.date = date;
         this.categories=cat;
@@ -46,6 +48,46 @@ public class ExpenseCard {
         listOfExpenseCards.add(myCard);
 
         return;
+    }
+
+    //will be used for history tab
+    public ArrayList<ExpenseCard> getAllExpenseCards(){
+        ArrayList<ExpenseCard> myList = listOfExpenseCards;
+        return myList;
+    }
+
+    //return list of expense cards by one date
+    public ArrayList<ExpenseCard> getExpenseCardsByDate(Date date) {
+        ArrayList<ExpenseCard> myList = new ArrayList<>();
+        int i =0;
+        while(i<listOfExpenseCards.size()){
+            if(listOfExpenseCards.get(i).getDate().equals(date)){
+                myList.add(listOfExpenseCards.get(i));
+            }
+            i++;
+        }
+        return myList;
+    }
+
+    //return list of expense cards by a range of dates
+    //should be used to compile list of expenses for the week and for the month
+    public ArrayList<ExpenseCard> getExpenseCardsByDates(Date beginDate,Date endDate) {
+        ArrayList<ExpenseCard> myList = new ArrayList<>();
+        int i =0;
+        while(i<listOfExpenseCards.size()){
+            //checking if the date of current card is within the range
+            if(listOfExpenseCards.get(i).getDate().before(endDate) && listOfExpenseCards.get(i).getDate().after(beginDate)){
+                myList.add(listOfExpenseCards.get(i));
+            }
+            i++;
+        }
+        return myList;
+    }
+
+
+    public int getCount(){
+        int count = listOfExpenseCards.size();
+        return count;
     }
 
     public String getTitle() {

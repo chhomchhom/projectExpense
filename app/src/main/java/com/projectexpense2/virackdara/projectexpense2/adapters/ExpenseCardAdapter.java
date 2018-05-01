@@ -35,20 +35,12 @@ public class ExpenseCardAdapter extends RecyclerView.Adapter<ExpenseCardAdapter.
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ExpenseCard list = myList.get(position);
         holder.textViewHead.setText(list.getTitle());
-        holder.textViewHead.setText(list.getAmount());
+        holder.textViewPrice.setText(list.getAmount());
     }
 
     @Override
     public int getItemCount() {
-
         return myList.size();
-    }
-
-    public class GetList{
-
-        public void setMyList(List<ExpenseCard> v){
-            myList = v;
-        }
     }
 
 
