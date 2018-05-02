@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
             ExpenseCard expenseCard = new ExpenseCard("Title"+i+1,i+"",new Date(),cat);
             listOfExpenseCards.add(expenseCard);
         }
+        //testing for akhmad
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
         BottomNavigationViewHelper.removeShiftMode(navigation);
