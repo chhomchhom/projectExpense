@@ -14,13 +14,20 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".activities.CreatePasswordActivitiy" />
         <activity android:name=".activities.InputPasswordActivity" />
-        <activity android:name=".activities.ProgramActivity" />
+        <activity
+            android:name=".activities.ProgramActivity">
+            <!--need to check if this intent actually works since another main intent is up-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+
+        </activity>
     </application>
 
 </manifest>

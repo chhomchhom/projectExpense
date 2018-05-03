@@ -74,27 +74,30 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //login page invocation starts here
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                SharedPreferences preferences = getSharedPreferences("PREFS", 0);
-                String password = preferences.getString("password", "0");
-                if(password.equals("0")){
-                    Intent intent = new Intent(getApplicationContext(),CreatePasswordActivitiy.class);
-                    startActivity(intent);
-                    finish();
+//        //login page invocation starts here
+//        Handler handler = new Handler();
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                SharedPreferences preferences = getSharedPreferences("PREFS", 0);
+//                String password = preferences.getString("password", "0");
+//                if(password.equals("0")){
+//                    Intent intent = new Intent(getApplicationContext(),CreatePasswordActivitiy.class);
+//                    startActivity(intent);
+//                    finish();
+//
+//                } else{
+//                    Intent intent = new Intent(getApplicationContext(),InputPasswordActivity.class);
+//                    startActivity(intent);
+//                    finish();
+//
+//                }
+//            }
+//        }, 2000);
+//        //login page ends here
+        //invoke program activity
+        launchProgramActivity();
 
-                } else{
-                    Intent intent = new Intent(getApplicationContext(),InputPasswordActivity.class);
-                    startActivity(intent);
-                    finish();
-
-                }
-            }
-        }, 2000);
-        //login page ends here
 
 
         //mTextMessage = findViewById(R.id.message);
@@ -102,6 +105,11 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationViewHelper.removeShiftMode(navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ExpensesFragment()).commit();
+    }
+    private void launchProgramActivity(){
+        Intent intent = new Intent(getApplicationContext(),ProgramActivity.class);
+        startActivity(intent);
+        //finish();
     }
 
 

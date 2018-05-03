@@ -46,8 +46,8 @@ public class InputPasswordActivity extends AppCompatActivity {
 //                editor.putString("password", PatternLockUtils.patternToString(mPatternLockView, pattern));
 //                editor.apply();
                 if(password.equals(PatternLockUtils.patternToString(mPatternLockView, pattern))){
-                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                    startActivity(intent);
+//                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+//                    startActivity(intent);
                     finish();
                 } else {
                     Toast.makeText(InputPasswordActivity.this, "Try Again", Toast.LENGTH_SHORT).show();
