@@ -17,6 +17,8 @@ import com.projectexpense2.virackdara.projectexpense2.R;
 import com.projectexpense2.virackdara.projectexpense2.adapters.CategoriesAdapter;
 import com.projectexpense2.virackdara.projectexpense2.objects.Categories;
 
+import java.util.ArrayList;
+
 import static com.projectexpense2.virackdara.projectexpense2.objects.Categories.listOfCategories;
 
 public class CategoriesDialogFragment extends DialogFragment {
@@ -44,10 +46,9 @@ public class CategoriesDialogFragment extends DialogFragment {
                 CategoriesFragment test = new CategoriesFragment();
                 test.setArguments(b);
                 Categories myCategory = new Categories(title);
-                boolean addOrNot=listOfCategories.contains(myCategory);
+                boolean addOrNot=ifContains(myCategory,listOfCategories);
                 if ( addOrNot== true) {
                     Toast.makeText(getContext(), "Category already exist", Toast.LENGTH_SHORT).show();
-
                 } else {
                     listOfCategories.add(myCategory);
                     Toast.makeText(getContext(), "Category added", Toast.LENGTH_SHORT).show();
@@ -58,6 +59,19 @@ public class CategoriesDialogFragment extends DialogFragment {
 
         editTextTitle = view.findViewById(R.id.categoryToAdd);
         return builder.create();
+    }
+
+    private boolean ifContains(Categories cat, ArrayList<Categories> thisList){
+        boolean ifContains = false;
+        int j = 0;
+        while(j<thisList.size()){
+            if(thisList.get(j).equals(cat)){
+                ifContains=true;
+                return ifContains;
+            }
+            j++;
+        }
+        return ifContains;
     }
 
 }
