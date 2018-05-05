@@ -1,6 +1,7 @@
 package com.projectexpense2.virackdara.projectexpense2.activities;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.support.v4.app.Fragment;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -19,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.projectexpense2.virackdara.projectexpense2.R;
+import com.projectexpense2.virackdara.projectexpense2.adapters.CategoriesAdapter;
 import com.projectexpense2.virackdara.projectexpense2.fragments.ExpensesFragment;
 import com.projectexpense2.virackdara.projectexpense2.fragments.HistoryFragment;
 import com.projectexpense2.virackdara.projectexpense2.fragments.ReminderFragment;
@@ -36,7 +39,7 @@ import static com.projectexpense2.virackdara.projectexpense2.objects.ExpenseCard
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-
+    RecyclerView mRecyclerView;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -71,30 +74,68 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mRecyclerView = findViewById(R.id.categoriesRecyclerView);
+        setupItemTouch();
+        //this crashes the app
+//        mRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
+//
+//            boolean running;
+//
+//            @Override
+//            public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
+//                if (parent.getItemAnimator().isRunning()) {
+//                    running = true;
+//                }
+//                if (running == true && !parent.getItemAnimator().isRunning()) {
+//                    // first time it's not running
+//                    running = false;
+//                    parent.getAdapter().notifyDataSetChanged();
+//                }
+//                super.onDraw(c, parent, state);
+//            }
+//        });
 
         //this would be where we would read how many categories there are from a local database
         //add it to the public arraylist of categories
         //do something similar with expenses
-        for(int i = 0; i<=1;i++) {
-            Categories cat = new Categories("Food");
-            if (listOfCategories.contains(cat)) {
-
-            } else {
-                listOfCategories.add(0, cat);
-            }
-        }
+        listOfCategories.add(0, new Categories("Food"));
+        listOfCategories.add(0, new Categories("Rent"));
+        listOfCategories.add(0, new Categories("School"));
+        listOfCategories.add(0, new Categories("Entertainment"));
 
         for(int i = 0; i<=10;i++){
             Categories cat = new Categories("Food");
             ExpenseCard expenseCard = new ExpenseCard("Title"+i,i+"",new Date(),cat);
             listOfExpenseCards.add(expenseCard);
         }
-        //testing for akhmad
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
         BottomNavigationViewHelper.removeShiftMode(navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ExpensesFragment()).commit();
+    }
+
+    //trying to implement swipe to delete
+    private void setupItemTouch(){
+        //Swipe to Delete
+        ItemTouchHelper swipeToDismissTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
+                ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction)
+            {
+                // Do Stuff
+                int swipedPosition = viewHolder.getAdapterPosition();
+                CategoriesAdapter adapter = (CategoriesAdapter)mRecyclerView.getAdapter();
+                adapter.remove(swipedPosition);
+            }
+
+        });
+        swipeToDismissTouchHelper.attachToRecyclerView(mRecyclerView);
     }
 
 }
