@@ -42,23 +42,22 @@ public class Categories {
 
         return ifContains;
     }
-
     @Override
-    public boolean equals(Object v) {
-        boolean retVal = false;
+    public boolean equals(Object object)
+    {
+        boolean isEqual= false;
 
-        if (v instanceof Categories){
-            Categories ptr = (Categories) v;
-            retVal = ptr.name == this.name;
+        if (object != null && object instanceof Categories)
+        {
+            isEqual = (this.name.equals (((Categories) object).name));
         }
 
-        return retVal;
+        return isEqual;
     }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 17 * hash + (this.name != null ? this.name.hashCode() : 0);
-        return hash;
+        return this.name.hashCode();
     }
 
 }

@@ -72,24 +72,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Context context = getApplicationContext();
-        CharSequence text = "Category already exist";
-        int duration = Toast.LENGTH_SHORT;
-
-
-
         //this would be where we would read how many categories there are from a local database
         //add it to the public arraylist of categories
         //do something similar with expenses
-//        for(int i = 0; i<=1;i++) {
-//            Categories cat = new Categories("Food");
-//            if (listOfCategories.contains(cat)) {
-//                Toast toast = Toast.makeText(context, text, duration);
-//                toast.show();
-//            } else {
-//                listOfCategories.add(0, cat);
-//            }
-//        }
+        for(int i = 0; i<=1;i++) {
+            Categories cat = new Categories("Food");
+            if (listOfCategories.contains(cat)) {
+
+            } else {
+                listOfCategories.add(0, cat);
+            }
+        }
 
         for(int i = 0; i<=10;i++){
             Categories cat = new Categories("Food");
