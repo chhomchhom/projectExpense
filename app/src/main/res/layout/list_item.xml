@@ -22,11 +22,15 @@
                 android:text="Title"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Display1" />
 
+
+
             <TextView
                 android:id="@+id/expensePrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Price" />
+
+
             <TextView
                 android:id="@+id/expenseDescription"
                 android:layout_width="match_parent"

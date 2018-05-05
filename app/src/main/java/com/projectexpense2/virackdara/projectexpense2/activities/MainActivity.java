@@ -1,5 +1,6 @@
 package com.projectexpense2.virackdara.projectexpense2.activities;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,7 +14,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.projectexpense2.virackdara.projectexpense2.R;
 import com.projectexpense2.virackdara.projectexpense2.fragments.ExpensesFragment;
@@ -27,6 +30,7 @@ import com.projectexpense2.virackdara.projectexpense2.objects.ExpenseCard;
 
 import java.util.Date;
 
+import static com.projectexpense2.virackdara.projectexpense2.objects.Categories.listOfCategories;
 import static com.projectexpense2.virackdara.projectexpense2.objects.ExpenseCard.listOfExpenseCards;
 
 public class MainActivity extends AppCompatActivity {
@@ -68,18 +72,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Context context = getApplicationContext();
+        CharSequence text = "Category already exist";
+        int duration = Toast.LENGTH_SHORT;
+
+
+
         //this would be where we would read how many categories there are from a local database
         //add it to the public arraylist of categories
         //do something similar with expenses
-        for(int i = 0; i<=10;i++){
-            Categories cat = new Categories("Food");
-            Categories.listOfCategories.add(cat);
-            System.out.println(Categories.listOfCategories.get(i).getName());
-        }
+//        for(int i = 0; i<=1;i++) {
+//            Categories cat = new Categories("Food");
+//            if (listOfCategories.contains(cat)) {
+//                Toast toast = Toast.makeText(context, text, duration);
+//                toast.show();
+//            } else {
+//                listOfCategories.add(0, cat);
+//            }
+//        }
 
         for(int i = 0; i<=10;i++){
             Categories cat = new Categories("Food");
-            ExpenseCard expenseCard = new ExpenseCard("Title"+i+1,i+"",new Date(),cat);
+            ExpenseCard expenseCard = new ExpenseCard("Title"+i,i+"",new Date(),cat);
             listOfExpenseCards.add(expenseCard);
         }
 
