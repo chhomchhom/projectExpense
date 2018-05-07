@@ -9,15 +9,5 @@
         android:icon="@drawable/ic_icon"
         />
 
-    <item
-        android:title="@string/item2"
-        android:id="@+id/item2"
-        app:showAsAction="never"
-        />
-    <item
-        android:title="@string/item3"
-        android:id="@+id/item3"
-        app:showAsAction="never"
-        />
 
 </menu>

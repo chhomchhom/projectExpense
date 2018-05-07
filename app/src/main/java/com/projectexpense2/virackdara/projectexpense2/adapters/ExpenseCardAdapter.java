@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.projectexpense2.virackdara.projectexpense2.R;
+import com.projectexpense2.virackdara.projectexpense2.activities.MainActivity;
 import com.projectexpense2.virackdara.projectexpense2.objects.ExpenseCard;
 
 import java.util.List;
