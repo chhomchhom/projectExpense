@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -19,17 +20,11 @@ import android.view.ViewGroup;
 import com.projectexpense2.virackdara.projectexpense2.R;
 import com.projectexpense2.virackdara.projectexpense2.activities.SettingsActivity;
 import com.projectexpense2.virackdara.projectexpense2.adapters.CategoriesAdapter;
-import com.projectexpense2.virackdara.projectexpense2.adapters.ExpenseCardAdapter;
 import com.projectexpense2.virackdara.projectexpense2.objects.Categories;
-import com.projectexpense2.virackdara.projectexpense2.objects.ExpenseCard;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 public class CategoriesFragment extends Fragment {
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
+    private RecyclerView.Adapter categoryAdapter;
 
     @Nullable
     @Override
@@ -44,9 +39,9 @@ public class CategoriesFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        adapter = new CategoriesAdapter(Categories.listOfCategories,getContext());
-
-        recyclerView.setAdapter(adapter);
+        categoryAdapter = new CategoriesAdapter(Categories.listOfCategories,getContext());
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(categoryAdapter);
 
         return rootView;
     }
@@ -67,7 +62,6 @@ public class CategoriesFragment extends Fragment {
                 getContext().startActivity(myIntent);
                 return true;
             case R.id.item2:
-
                 // Do Fragment menu item stuff here
                 return true;
             case R.id.add_button:

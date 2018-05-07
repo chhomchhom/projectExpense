@@ -29,4 +29,35 @@ public class Categories {
         Categories newCategory = new Categories(name);
         listOfCategories.add(newCategory);
     }
+    public boolean ifContains(Categories cat){
+        boolean ifContains = false;
+        int j = 0;
+        while(j<listOfCategories.size()){
+            if(listOfCategories.get(j).equals(cat)){
+                ifContains=true;
+                break;
+            }
+            j++;
+        }
+
+        return ifContains;
+    }
+    @Override
+    public boolean equals(Object object)
+    {
+        boolean isEqual= false;
+
+        if (object != null && object instanceof Categories)
+        {
+            isEqual = (this.name.equals (((Categories) object).name));
+        }
+
+        return isEqual;
+    }
+
+    @Override
+    public int hashCode() {
+        return this.name.hashCode();
+    }
+
 }

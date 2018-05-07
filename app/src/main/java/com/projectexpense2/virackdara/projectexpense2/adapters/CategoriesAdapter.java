@@ -3,6 +3,7 @@ package com.projectexpense2.virackdara.projectexpense2.adapters;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,7 +56,17 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
 
             textViewName = itemView.findViewById(R.id.categoryName);
 
-
         }
     }
+
+    //trying to implement swipe to delete
+    public void remove(int position) {
+        if (position < 0 || position >= myList.size()) {
+            return;
+        }
+        myList.remove(position);
+        notifyItemRemoved(position);
+    }
+
+
 }
