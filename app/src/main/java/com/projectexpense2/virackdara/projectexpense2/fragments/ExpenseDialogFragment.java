@@ -65,7 +65,7 @@ Button save;
 //     fragmentManager.beginTransaction().detach(test).attach(test).commit();
                 Date myDate = new Date();
                 ExpenseCard myExpense = new ExpenseCard(title,"5",myDate, new Categories("Food"));
-                listOfExpenseCards.add(myExpense);
+                listOfExpenseCards.add(0,myExpense);
 
 
                 dismiss();

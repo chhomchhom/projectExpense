@@ -61,9 +61,7 @@ public class CategoriesFragment extends Fragment {
                 Intent myIntent = new Intent(getContext(), SettingsActivity.class);
                 getContext().startActivity(myIntent);
                 return true;
-            case R.id.item2:
-                // Do Fragment menu item stuff here
-                return true;
+
             case R.id.add_button:
                 openCategoryDialog();
                 return true;
