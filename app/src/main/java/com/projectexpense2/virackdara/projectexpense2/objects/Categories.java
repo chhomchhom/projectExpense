@@ -29,19 +29,22 @@ public class Categories {
         Categories newCategory = new Categories(name);
         listOfCategories.add(newCategory);
     }
-    public boolean ifContains(Categories cat){
-        boolean ifContains = false;
-        int j = 0;
-        while(j<listOfCategories.size()){
-            if(listOfCategories.get(j).equals(cat)){
-                ifContains=true;
-                break;
-            }
-            j++;
-        }
 
-        return ifContains;
-    }
+//    public boolean ifContains(Categories cat){
+//        boolean ifContains = false;
+//        int j = 0;
+//        while(j<listOfCategories.size()){
+//            if(listOfCategories.get(j).equals(cat)){
+//                ifContains=true;
+//                break;
+//            }
+//            j++;
+//        }
+//
+//        return ifContains;
+//    }
+//
+    //these two methods are used to check if a category has been added already
     @Override
     public boolean equals(Object object)
     {

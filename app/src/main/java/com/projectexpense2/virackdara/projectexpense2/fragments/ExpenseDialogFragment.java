@@ -23,8 +23,11 @@ import com.projectexpense2.virackdara.projectexpense2.R;
 import com.projectexpense2.virackdara.projectexpense2.objects.Categories;
 import com.projectexpense2.virackdara.projectexpense2.objects.ExpenseCard;
 
+import java.util.ArrayList;
 import java.util.Date;
 
+import static com.projectexpense2.virackdara.projectexpense2.objects.ExpenseCard.dayTotal;
+import static com.projectexpense2.virackdara.projectexpense2.objects.ExpenseCard.getExpenseCardsByDate;
 import static com.projectexpense2.virackdara.projectexpense2.objects.ExpenseCard.listOfExpenseCards;
 
 /**
@@ -54,6 +57,7 @@ Button save;
             @Override
             public void onClick(View view) {
                 String title = editTextTitle.getText().toString();
+                String amount = editTextAmount.getText().toString();
 
                 Bundle b = new Bundle();
                 b.putString("title", title);
@@ -64,11 +68,18 @@ Button save;
 //                android.support.v4.app.FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 //     fragmentManager.beginTransaction().detach(test).attach(test).commit();
                 Date myDate = new Date();
-                ExpenseCard myExpense = new ExpenseCard(title,"5",myDate, new Categories("Food"));
+                ExpenseCard myExpense = new ExpenseCard(title,amount,myDate, new Categories("Food"));
                 listOfExpenseCards.add(0,myExpense);
 
+                //recalculating day total expenses
+                ArrayList<ExpenseCard> dayExpenseCards = getExpenseCardsByDate(new Date());
+                for(int i = 0;i<dayExpenseCards.size();i++){
+                    dayTotal=dayTotal+Integer.parseInt(dayExpenseCards.get(i).getAmount());
+//                    dayTotal=dayTotal+5;
 
+                }
                 dismiss();
+
 
             }
         });

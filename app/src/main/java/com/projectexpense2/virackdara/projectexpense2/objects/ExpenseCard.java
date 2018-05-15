@@ -10,12 +10,13 @@ public class ExpenseCard {
     private String description;
     private Categories categories;
     public static ArrayList<ExpenseCard> listOfExpenseCards = new ArrayList<>();
+    public static int dayTotal;
+    public static int weekTotal;
+    public static int monthTotal;
+
 
     //constructor
     //description is optional
-    public ExpenseCard(){
-
-    }
     public ExpenseCard(String title, String amount, Date date, Categories cat){
         this.title = title;
         this.amount = amount;
@@ -57,7 +58,7 @@ public class ExpenseCard {
     }
 
     //return list of expense cards by one date
-    public ArrayList<ExpenseCard> getExpenseCardsByDate(Date date) {
+    public static ArrayList<ExpenseCard> getExpenseCardsByDate(Date date) {
         ArrayList<ExpenseCard> myList = new ArrayList<>();
         int i =0;
         while(i<listOfExpenseCards.size()){
@@ -91,7 +92,7 @@ public class ExpenseCard {
     }
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public void setTitle(String title) {
@@ -99,7 +100,7 @@ public class ExpenseCard {
     }
 
     public String getAmount() {
-        return amount;
+        return this.amount;
     }
 
     public void setAmount(String amount) {
@@ -107,7 +108,7 @@ public class ExpenseCard {
     }
 
     public Date getDate() {
-        return date;
+        return this.date;
     }
 
     public void setDate(Date date) {
@@ -115,10 +116,21 @@ public class ExpenseCard {
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public void setDayTotal(int total){
+        dayTotal=total;
+    }
+    public void setWeekTotal(int total){
+        weekTotal=total;
+    }
+    public void setMonthTotal(int total){
+        monthTotal=total;
+    }
+
 }

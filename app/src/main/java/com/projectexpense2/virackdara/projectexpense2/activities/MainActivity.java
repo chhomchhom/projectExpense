@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.projectexpense2.virackdara.projectexpense2.adapters.ExpenseCardAdapter;
@@ -32,10 +33,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static com.projectexpense2.virackdara.projectexpense2.objects.ExpenseCard.dayTotal;
+import static com.projectexpense2.virackdara.projectexpense2.objects.ExpenseCard.getExpenseCardsByDate;
+import static com.projectexpense2.virackdara.projectexpense2.objects.ExpenseCard.listOfExpenseCards;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
-
+    public static ArrayList<ExpenseCard> todayCards;
+    public static ArrayList<ExpenseCard> weekCards;
+    public static ArrayList<ExpenseCard> monthCards;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -74,6 +81,13 @@ public class MainActivity extends AppCompatActivity {
 
         //invoke program activity
         launchProgramActivity();
+
+        //finding today's total expenses
+        ArrayList<ExpenseCard> dayExpenseCards = getExpenseCardsByDate(new Date());
+        for(int i = 0;i<dayExpenseCards.size();i++){
+            dayTotal=dayTotal+Integer.parseInt(dayExpenseCards.get(i).getAmount());
+        }
+
 
         //mTextMessage = findViewById(R.id.message);
         BottomNavigationView navigation = findViewById(R.id.navigation);

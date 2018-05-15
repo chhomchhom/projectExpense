@@ -14,6 +14,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.projectexpense2.virackdara.projectexpense2.R;
 import com.projectexpense2.virackdara.projectexpense2.activities.SettingsActivity;
@@ -23,23 +24,31 @@ import com.projectexpense2.virackdara.projectexpense2.objects.ExpenseCard;
 
 import java.util.Date;
 
+import static com.projectexpense2.virackdara.projectexpense2.objects.ExpenseCard.dayTotal;
+
 public class ExpensesFragment extends Fragment{
+
+    private TextView totalTextBox;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_expense, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_expense, container, false);
         Toolbar toolbar = rootView.findViewById(R.id.toolbarExpense);
         toolbar.setTitle("");
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         setHasOptionsMenu(true);
+
 
         TabLayout tabLayout = rootView.findViewById(R.id.tabLayout);
         tabLayout.addTab(tabLayout.newTab().setText("Today"));
         tabLayout.addTab(tabLayout.newTab().setText("Week"));
         tabLayout.addTab(tabLayout.newTab().setText("Month"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        totalTextBox = rootView.findViewById(R.id.total);
+        totalTextBox.setText(dayTotal+"");
 
         final ViewPager viewPager = rootView.findViewById(R.id.pager);
         final PagerAdapter pagerAdapter = new PagerAdapter(getFragmentManager(), tabLayout.getTabCount());
@@ -49,6 +58,9 @@ public class ExpensesFragment extends Fragment{
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
+                totalTextBox = rootView.findViewById(R.id.total);
+                totalTextBox.setText(dayTotal+"");
+
             }
 
             @Override

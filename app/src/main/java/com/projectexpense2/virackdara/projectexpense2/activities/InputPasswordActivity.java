@@ -53,9 +53,7 @@ public class InputPasswordActivity extends AppCompatActivity {
                     Toast.makeText(InputPasswordActivity.this, "Try Again", Toast.LENGTH_SHORT).show();
                 }
 
-
             }
-
             @Override
             public void onCleared() {
 
