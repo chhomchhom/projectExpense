@@ -15,8 +15,10 @@ import android.text.Editable;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.support.v4.app.DialogFragment;
 import com.projectexpense2.virackdara.projectexpense2.R;
@@ -40,6 +42,9 @@ public class ExpenseDialogFragment extends DialogFragment {
     private EditText editTextAmount;
     private EditText editTextDescription;
 
+    private TextView totalTextBox;
+
+
 Button save;
 
 
@@ -58,6 +63,7 @@ Button save;
             public void onClick(View view) {
                 String title = editTextTitle.getText().toString();
                 String amount = editTextAmount.getText().toString();
+                String description = editTextDescription.getText().toString();
 
                 Bundle b = new Bundle();
                 b.putString("title", title);
@@ -68,7 +74,7 @@ Button save;
 //                android.support.v4.app.FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 //     fragmentManager.beginTransaction().detach(test).attach(test).commit();
                 Date myDate = new Date();
-                ExpenseCard myExpense = new ExpenseCard(title,amount,myDate, new Categories("Food"));
+                ExpenseCard myExpense = new ExpenseCard(title,amount,myDate, description,new Categories("Food"));
                 listOfExpenseCards.add(0,myExpense);
 
                 //recalculating day total expenses
@@ -79,7 +85,8 @@ Button save;
 
                 }
                 dismiss();
-
+//                totalTextBox = view.findViewById(R.id.total);
+//                totalTextBox.setText(dayTotal+"");
 
             }
         });
@@ -90,5 +97,8 @@ Button save;
 
         return builder.create();
     }
+
+
+
 
 }

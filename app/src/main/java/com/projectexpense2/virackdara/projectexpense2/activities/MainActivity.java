@@ -83,10 +83,12 @@ public class MainActivity extends AppCompatActivity {
         launchProgramActivity();
 
         //finding today's total expenses
-        ArrayList<ExpenseCard> dayExpenseCards = getExpenseCardsByDate(new Date());
-        for(int i = 0;i<dayExpenseCards.size();i++){
-            dayTotal=dayTotal+Integer.parseInt(dayExpenseCards.get(i).getAmount());
-        }
+//        ArrayList<ExpenseCard> dayExpenseCards = getExpenseCardsByDate(new Date());
+//        for(int i = 0;i<dayExpenseCards.size();i++){
+//            //if expense cards has the current date then add it to this current date array
+//            todayCards.add(dayExpenseCards.get(i));
+//            dayTotal=dayTotal+Integer.parseInt(dayExpenseCards.get(i).getAmount());
+//        }
 
 
         //mTextMessage = findViewById(R.id.message);

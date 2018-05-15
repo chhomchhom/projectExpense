@@ -49,4 +49,15 @@ public class TodayTabFragment extends Fragment{
         recyclerView.setAdapter(adapter);
         return rootView;
     }
+
+//    public void updateUI() {
+//
+//        if (adapter == null) {
+//            adapter = new ExpenseCardAdapter(listOfExpenseCards,getContext());
+//            recyclerView.setAdapter(adapter);
+//        } else {
+//            adapter.notifyDataSetChanged();
+//        }
+//    }
+
 }

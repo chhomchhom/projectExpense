@@ -37,6 +37,7 @@ public class ExpenseCardAdapter extends RecyclerView.Adapter<ExpenseCardAdapter.
         ExpenseCard list = myList.get(position);
         holder.textViewHead.setText(list.getTitle());
         holder.textViewPrice.setText(list.getAmount());
+        holder.textViewDescription.setText(list.getDescription());
     }
 
     @Override
@@ -48,6 +49,7 @@ public class ExpenseCardAdapter extends RecyclerView.Adapter<ExpenseCardAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder{
         public TextView textViewHead;
         public TextView textViewPrice;
+        public TextView textViewDescription;
 
         public ViewHolder(View itemView) {
 
@@ -56,6 +58,8 @@ public class ExpenseCardAdapter extends RecyclerView.Adapter<ExpenseCardAdapter.
             textViewHead = itemView.findViewById(R.id.expenseTitle);
 
             textViewPrice = itemView.findViewById(R.id.expensePrice);
+
+            textViewDescription = itemView.findViewById(R.id.expenseDescription);
 
         }
     }

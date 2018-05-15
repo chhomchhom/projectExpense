@@ -58,19 +58,16 @@ public class ExpensesFragment extends Fragment{
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
-                totalTextBox = rootView.findViewById(R.id.total);
-                totalTextBox.setText(dayTotal+"");
-
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
+                totalTextBox.setText(dayTotal+"");
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
+                totalTextBox.setText(dayTotal+"");
             }
         });
 
